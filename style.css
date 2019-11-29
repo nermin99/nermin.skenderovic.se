@@ -4,12 +4,16 @@ html {
 
   background: rgb(239,99,45);
   background: linear-gradient(135deg, #EF632D 0%, #F79444 100%);
+
+  color: rgb(240,240,240);
+  font-family: Monaco, 'Courier New', monospace;
 }
 
 body {
   flex: 1;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 body > * {
@@ -20,43 +24,47 @@ header {
   height: fit-content;
   display: flex;
   justify-content: center;
-  width: 100%;
+  margin-top: 2rem;
 }
 
 header #logo {
-  width: 200px;
-  height: 200px;
+  height: 11rem;
+  width: auto;
+}
+
+#projects {
+  width: 80vw;
+  margin-top: 3rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#projects .project {
+  width: 20rem;
 }
 
 footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
+  margin-top: auto;
   width: 100%;
+  height: 33vh;
 
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
   flex-wrap: wrap;
 }
 
 footer div {
-  width: 300px;
-  height: 200px;
+  min-width: 300px;
 
-  margin: auto;
-  background-color: red;
+  border: 1px solid black;
 }
 
-#one {
-  margin-left: 0;
-}
-
-#two {
-  margin-right: 0;
-}
-
-@media (max-width: 1000px) {
-  footer div {
-    margin: 0;
+@media (max-width: 800px) {
+  #projects .project {
+    width: 100%;
   }
+  /* footer {
+    justify-content: center;
+  } */
 }
