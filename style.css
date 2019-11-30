@@ -1,21 +1,31 @@
+/*
+  Colors:
+
+  #ef942d
+  #ef332d
+*/
+
 * {
   box-sizing: border-box;
+
+  font-family: Monaco, 'Courier New', monospace;
 }
 
 html {font-size: 62.5%;}
 body {font-size: 1.6em;}
 
+a {
+  text-decoration: none;
+}
+
 html {
-  display: flex;
   height: 100%;
-
-  /* Good combos: #ef942d #ef332d */
-
   background: rgb(239,99,45);
   background: linear-gradient(135deg, #EF632D 0%, #F79444 100%);
 
+  display: flex;
   color: rgb(240,240,240);
-  font-family: Monaco, 'Courier New', monospace;
+
 }
 
 body {
@@ -26,7 +36,6 @@ body {
 }
 
 body > * {flex: 0 auto;}
-a:visited {color: blue; font-weight: bold;}
 
 header {
   height: fit-content;
@@ -73,6 +82,15 @@ footer div {
   min-width: 300px;
 
   border: 1px solid black;
+}
+
+#social-links img {
+  width: 3em;
+  height: 3em;
+}
+
+.filter-red {
+  filter: invert(12%) sepia(92%) saturate(7101%) hue-rotate(3deg) brightness(99%) contrast(113%);
 }
 
 @media (max-width: 800px) {
