@@ -1,0 +1,169 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+}
+
+#root {
+  display: inline-block;
+  width: 90%;
+  margin-bottom: 5rem;
+}
+
+.tallyKey, .pointer {
+  cursor: pointer;
+}
+
+.animate {
+  transform: scale(1.05);
+  box-shadow: 0 0 1rem #ffc600;
+  left: 100px;
+}
+
+svg {
+  font-weight: 900;
+  font-family: Font Awesome\ 5 Free;
+  font-style: normal;
+  line-height: 1;
+}
+
+.fa-plus-circle {
+  color: green;
+  font-size: 2rem;
+  width: 2rem;
+  vertical-align: inherit;
+  margin-right: 0.5rem;
+  margin-left: 0.2rem;
+}
+
+.fa-plus-circle:before {
+  content: "\f055";
+}
+
+.fa-minus-circle {
+  color: red;
+  font-size: 1.5rem;
+  width: 1.41rem;
+}
+
+.fa-minus-circle:before {
+  content: "\f056";
+}
+
+aside {
+  position: fixed;
+  display: inline-flex;
+  flex-direction: column;
+  width: 9%;
+  top: 1%;
+  right: 0.5%;
+}
+
+aside button {
+  margin-bottom: 2rem;
+  padding: 0.5rem 0;
+  font-size: 1rem;
+  border: none;
+}
+
+aside button:hover {
+  cursor: pointer;
+}
+
+#saveFile {
+  background-color: lightgreen;
+}
+
+#resetQuantity {
+  background-color: lightgoldenrodyellow;
+}
+
+#resetTable {
+  background-color: lightcoral;
+}
+
+.addNewRowInput {
+  width: 3rem;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+}
+
+/** Table **/
+
+table {
+  border-collapse: collapse;
+  line-height: 24px;
+  text-align: left;
+  width: 100%;
+  table-layout: fixed;
+}
+
+th, td {
+  border: 1px solid #dee2e6;
+  padding: 0.75rem 0.5rem;
+}
+
+td {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+td.tallyKey {
+  text-align: center;
+}
+
+td.id, td.sizeClass, td.cellvolume, td.group {
+  text-align: right;
+}
+
+td.input {
+  padding: 0.5rem;
+}
+
+input {
+  display: table-cell;
+  width: 100%;
+  padding: 0.2rem 0.3rem;
+}
+
+input:not(.addNewRowInput) {
+  border: 1px solid rgb(238, 238, 238);
+}
+
+.quantity.input input {
+  font-weight: bold;
+}
+
+thead th {
+  color: #fff;
+  background-color: #217346;
+  border-color: #217346;
+}
+
+tbody tr {
+  transition: all 0.1s ease;
+}
+
+tbody tr:nth-of-type(odd) {
+  background-color: #e2efda;
+}
+
+tbody tr:nth-of-type(even) {
+  background-color: #fff;
+}
+
+tbody tr:hover {
+  background-color: rgba(0, 0, 0, 0.075);
+}
+
+tfoot th:hover {
+  background-color: #f5ffef;
+}
+
+tfoot span {
+  vertical-align: middle;
+}

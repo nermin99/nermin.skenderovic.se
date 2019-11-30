@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Tally Counter</title>
+  <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
+  <script src="classes/Substance.js"></script>
+</head>
+
+<body>
+
+  <div id="root"></div>
+
+  <aside>
+    <button id="saveFile" onclick="saveToFile()">Spara till fil</button>
+
+    <button onclick="loadFromFile()">Öppna fil</button>
+    <input type="file" id="fileInput" style="display:none">
+
+    <button id="btnExport" onclick="exportExcel()">Exportera</button>
+    <iframe id="txtArea1" style="display:none"></iframe>
+
+    <button id="resetQuantity" onclick="resetQuantityColumn()">Återställ No count</button>
+
+    <button id="resetTable" onclick="resetTable()">Återställ tabell</button>
+  </aside>
+
+  <script src="index.js"></script>
+</body>
+
+</html>
