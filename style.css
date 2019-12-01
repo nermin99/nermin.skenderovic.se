@@ -65,7 +65,7 @@ header #logo {
   margin: 0.5rem 0.5% 0.5rem 0.5%;
   padding: 2rem;
   border-radius: 2rem;
-  /* color: var(--beige); */
+  color: white;
 }
 
 .project h2 {

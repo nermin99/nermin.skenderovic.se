@@ -1,0 +1,23 @@
+{
+  "name": "nermin.skenderovic.se",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "devDependencies": {
+    "http-server": "^0.12.0"
+  },
+  "scripts": {
+    "start": "http-server -c-1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nermin99/nermin.skenderovic.git"
+  },
+  "keywords": [],
+  "author": "Nermin Skenderovic",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nermin99/nermin.skenderovic/issues"
+  },
+  "homepage": "https://github.com/Nermin99/nermin.skenderovic#readme"
+}
