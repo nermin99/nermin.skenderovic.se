@@ -4,7 +4,7 @@
   --second-orange: #F79545;
   --brown: #784822;
   --beige: #F9BF90;
-  --grey-brown: #785C46;
+  --dark-grey: #785C46;
   --orange-brown: #C47737;
 }
 
@@ -17,15 +17,19 @@
 html {font-size: 62.5%;}
 body {font-size: 1.6em;}
 
-a {text-decoration: none;}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 
 html {
-  height: 100%;
-  background: #F0652E;
+  height: fit-content;
+  background-color: #F0652E;
   background: linear-gradient(135deg, #F0652E 0%, #F79545 100%);
 
   display: flex;
-  color: var(--whitegrey);
+  color: var(--beige);
 
   font-family: 'Solway', serif;
   /* font-family: 'Roboto', sans-serif; */
@@ -54,29 +58,52 @@ header #logo {
 
 #projects {
   max-width: 100rem;
+  width: fit-content;
   margin: 3em 0;
+  padding: 0 1rem;
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
-  /* font-family: 'Roboto', sans-serif; */
 }
 
 #projects .project {
   width: 49%;
-  margin: 0.5rem 0.5% 0.5rem 0.5%;
+  margin: 0.5rem 0.5%;
   padding: 2rem;
+  padding-right: 4rem;
+  background-color: var(--brown);
   border-radius: 2rem;
-  color: white;
+  cursor: pointer;
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.project:hover {
+  transform: scale(1.01, 1.02);
+  transition: 0.1s;
 }
 
 .project h2 {
   font-size: 2rem;
-  color: var(--beige);
+  margin-bottom: 0.5em;
+  color: var(--second-orange);
+}
+
+.project a {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+}
+
+.project a .icon-arrow {
+  font-size: 2rem;
 }
 
 footer {
   margin-top: auto;
   width: 100%;
-  box-sizing: content-box;
   min-height: 33vh;
   background-color: var(--brown);
 
@@ -94,7 +121,6 @@ footer div {
 
 #info {
   margin-left: 8rem;
-  padding: 0.5rem;
 }
 
 #info h1 {
@@ -115,7 +141,7 @@ footer div {
   color: var(--beige);
 }
 
-#social-links .icon {
+#social-links .icon-social {
   font-size: 5.6rem;
   margin-left: 0.5rem;
 }
@@ -124,20 +150,30 @@ footer div {
   #projects .project {
     width: 100%;
   }
-}
 
-.first {
-  background-color: var(--second-orange);
-}
+  footer {
+    text-align: center;
+    justify-content: center;
+    padding: 1rem;
+  }
 
-.second {
-  background-color: var(--grey-brown);
-}
+  footer #info {
+    margin: 0;
+  }
 
-.third {
-  background-color: var(--orange-brown);
-}
+  #info h1 {
+    font-size: 3.5rem;
+  }
 
-.fourth {
-  background-color: var(--main-orange);
+  #info h2 {
+    font-size: 2rem;
+  }
+
+  #info h3 {
+    font-size: 1.8rem;
+  }
+
+  footer #social-links {
+    margin: 0;
+  }
 }
