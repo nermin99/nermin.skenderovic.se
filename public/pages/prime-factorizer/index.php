@@ -20,7 +20,7 @@
 
 <?php
     if (isset($_POST["input"])) {
-        $input = $_POST["input"];
+        $input = htmlspecialchars($_POST["input"]);
         $number = $input;
 
         echo $input;
@@ -28,23 +28,13 @@
         $i = 2;
         $iterations = 0;
 
-        while ($i <= $number) {
-            // Kollar om talet är jämnt delbart med primtalen. Med början på det minsta primtalet
-            if ($number % $i == 0) {
+        while ($i <= sqrt($input)) {
+            if ($number % $i == 0) { // Kollar om talet är jämnt delbart med primtalen. Med början på det minsta primtalet
                 $number /= $i;
                 $primes[] = $i; // Lagrar primtalet som gick att dela med
-            }
-            // Endast primtal upp till roten ur talet behöver kollas
-            else if ($i >= sqrt($input)) {
-                $primes[] = $number;
-                break;
-            }
-            // Är inte första primtalen 2, testas 3
-            else if ($i == 2){
+            } else if ($i == 2) {  // Är inte första primtalen 2, testas 3
                 $i++;
-            }
-            // Funkar inte det testas nästa ojämna tal (jämna tal går att dela med 2).
-            else {
+            } else { // Funkar inte det testas nästa ojämna tal (jämna tal går att dela med 2)
                 $i += 2;
             }
             $iterations++;
@@ -53,7 +43,8 @@
         echo " = ";
         if($input < 2) exit($input);
 
-        for ($j=0; $j < count($primes) ; $j++) {
+        if($i >= sqrt($input)) $primes[] = $input;
+        for ($j = 0; $j < count($primes); $j++) {
             echo "$primes[$j] ";
         }
         echo "<br><br>";
