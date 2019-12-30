@@ -10,40 +10,36 @@
 <body>
     <form method="post">
         <label>Input</label><br>
-        <input type="text" name="input" autocomplete="off" placeholder="210"><br>
+        <input type="text" name="input" autocomplete="off" placeholder="1337" autofocus><br>
         <input type="submit" value="Factorize"><br>
     </form>
     <hr>
-</body>
 
-</html>
-
-<?php
+    <?php
     if (isset($_POST["input"])) {
         $input = htmlspecialchars($_POST["input"]);
-        $number = $input;
-
-        echo $input;
-
+        $n = $input;
         $i = 2;
         $iterations = 0;
 
-        while ($i <= sqrt($input)) {
-            if ($number % $i == 0) { // Kollar om talet är jämnt delbart med primtalen. Med början på det minsta primtalet
-                $number /= $i;
-                $primes[] = $i; // Lagrar primtalet som gick att dela med
-            } else if ($i == 2) {  // Är inte första primtalen 2, testas 3
+        echo $input;
+
+        while ($i <= floor(sqrt($n))) {
+            if ($n % $i == 0) { // if factor is divisible by the prime
+                $primes[] = $i; // add the prime to array
+                $n /= $i;       // get the next factor
+            } else if ($i == 2) {  // increment until next prime is found
                 $i++;
-            } else { // Funkar inte det testas nästa ojämna tal (jämna tal går att dela med 2)
+            } else { // if factor isn't even, increment by 2
                 $i += 2;
             }
             $iterations++;
         }
+		$primes[] = $n; // only necessary to check primes up to sqrt of factor, then factor itself is prime
 
         echo " = ";
         if($input < 2) exit($input);
 
-        if($i >= sqrt($input)) $primes[] = $input;
         for ($j = 0; $j < count($primes); $j++) {
             echo "$primes[$j] ";
         }
@@ -52,4 +48,6 @@
         echo "Square root of number ≈ " . round(sqrt($input), 2) . "<br>";
         if(count($primes) == 1) echo "<b>prime</b>";
     }
-?>
+    ?>
+</body>
+</html>
