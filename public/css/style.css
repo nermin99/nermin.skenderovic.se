@@ -1,11 +1,11 @@
 :root {
-  --whitegrey: #C8C8C8;
-  --main-orange: #F0652E;
-  --second-orange: #F79545;
+  --whitegrey: #c8c8c8;
+  --main-orange: #f0652e;
+  --second-orange: #f79545;
   --brown: #784822;
-  --beige: #F9BF90;
-  --dark-grey: #785C46;
-  --orange-brown: #C47737;
+  --beige: #f9bf90;
+  --dark-grey: #785c46;
+  --orange-brown: #c47737;
 }
 
 * {
@@ -14,22 +14,25 @@
   box-sizing: border-box;
 }
 
-html { font-size: 62.5%; }
-body { font-size: 1.6em; }
+html {
+  font-size: 62.5%;
+}
+body {
+  font-size: 1.6em;
+}
 
 a {
   text-decoration: none;
   color: inherit;
 }
 
-
 html {
   height: fit-content;
   min-height: 100%;
   display: flex;
-  background-color: #F0652E;
-  background: linear-gradient(135deg, #F0652E 0%, #F79545 100%);
-  font-family: 'Solway', serif;
+  background-color: #f0652e;
+  background: linear-gradient(135deg, #f0652e 0%, #f79545 100%);
+  font-family: "Solway", serif;
   color: var(--beige);
 }
 
@@ -40,7 +43,9 @@ body {
   align-items: center;
 }
 
-body > * { flex: 0 auto; }
+body > * {
+  flex: 0 auto;
+}
 
 header {
   height: fit-content;
@@ -125,9 +130,13 @@ footer div {
   color: var(--second-orange);
 }
 
-#info h2 { font-size: 3.4rem; }
+#info h2 {
+  font-size: 3.4rem;
+}
 
-#info h3 { font-size: 2.5rem; }
+#info h3 {
+  font-size: 2.5rem;
+}
 
 #social-links {
   margin-right: 8rem;
@@ -155,13 +164,23 @@ footer div {
     padding: 1rem;
   }
 
-  footer #social-links { margin: 0; }
+  footer #social-links {
+    margin: 0;
+  }
 
-  footer #info { margin: 0; }
+  footer #info {
+    margin: 0;
+  }
 
-  #info h1 { font-size: 3.5rem; }
+  #info h1 {
+    font-size: 3.5rem;
+  }
 
-  #info h2 { font-size: 2rem; }
+  #info h2 {
+    font-size: 2rem;
+  }
 
-  #info h3 { font-size: 1.8rem; }
+  #info h3 {
+    font-size: 1.8rem;
+  }
 }
