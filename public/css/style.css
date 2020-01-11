@@ -1,17 +1,17 @@
 :root {
   /* Colors */
-  --main-orange: #f47028;
-  --second-orange: #f79545;
+  --orange-primary: #f47028;
+  --orange-secondary: #f79545;
+  --NS-white: #dddddd;
+  --NS-black: #262626;
   --brown: #784822;
   --beige: #f9bf90;
 
-  --boxGap: 0.5%;
+  --boxGap: 1%;
 }
 
 /*
   #f36f27
-  #282828
-  #DDDDDD
 */
 
 * {
@@ -43,8 +43,12 @@ body {
   flex-direction: column;
   align-items: center;
 
-  background-color: var(--main-orange);
-  background: linear-gradient(180deg, var(--main-orange) 0%, #262626 95%);
+  background-color: var(--orange-primary);
+  background: linear-gradient(
+    180deg,
+    var(--orange-primary) 0%,
+    var(--NS-black) 95%
+  );
   color: var(--beige);
   font-family: "Solway", serif;
 }
@@ -81,9 +85,11 @@ header #logo {
   margin: var(--boxGap);
   padding: 2rem;
   padding-right: 4rem;
+  background-color: rgba(0, 0, 0, 0.01);
+  box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.1),
+    -5px -5px 5px 0 rgba(0, 0, 0, 0.02);
   border-radius: 2rem;
-  box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.1);
-  color: #ddd;
+  color: var(--NS-white);
 
   position: relative;
   display: flex;
@@ -98,7 +104,7 @@ header #logo {
 .project h2 {
   font-size: 2rem;
   margin-bottom: 0.5em;
-  color: var(--second-orange);
+  color: var(--orange-secondary);
 }
 
 .project a {
@@ -106,8 +112,8 @@ header #logo {
   right: 1rem;
   bottom: 1rem;
   /* border-radius: 100%; */
-  /* background-color: var(--second-orange); */
-  /* color: #262626; */
+  /* background-color: var(--orange-secondary); */
+  /* color: var(--NS-black); */
 }
 
 .project a .fa-stack {
@@ -115,20 +121,20 @@ header #logo {
 }
 
 .project a .icon-circle {
-  color: #262626;
+  color: var(--NS-black);
 }
 
 .project a .icon-arrow {
-  color: transparent;
-  font-size: 1.5rem;
+  color: var(--orange-secondary);
+  font-size: 1.4rem;
 }
 
 footer {
   margin-top: auto;
   width: 100%;
   min-height: 33vh;
-  color: #dddddd;
-  /* background-color: #282828; */
+  color: var(--NS-white);
+  /* background-color: var(--NS-black); */
 
   display: flex;
   justify-content: space-between;
@@ -142,7 +148,7 @@ footer {
 
 #info h1 {
   font-size: 4.4rem;
-  color: var(--second-orange);
+  color: var(--orange-secondary);
 }
 
 #info h2 {
@@ -155,10 +161,7 @@ footer {
 
 #social-links {
   margin-right: 8rem;
-}
-
-#social-links a {
-  color: var(--second-orange);
+  color: var(--orange-secondary);
 }
 
 #social-links .icon-social {
