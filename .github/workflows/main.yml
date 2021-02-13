@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: CI/CD
 
 # Controls when the action will run.
 on:
@@ -26,6 +26,7 @@ jobs:
       - run: npm run lint
 
   deploy:
+    # needs: [lint]
     runs-on: ubuntu-latest
     steps:
       - name: executing remote ssh commands
