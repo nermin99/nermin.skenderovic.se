@@ -2,25 +2,23 @@
   "name": "nermin.skenderovic.se",
   "version": "1.0.0",
   "description": "",
-  "private": true,
-  "devDependencies": {
-    "http-server": "^0.12.0",
-    "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.10"
-  },
+  "main": "index.js",
   "scripts": {
-    "start": "http-server -c-1",
-    "build": "webpack --config webpack.config.js"
+    "lint": "prettier --check .",
+    "lint:fix": "prettier --write ."
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Nermin99/nermin.skenderovic.se.git"
+    "url": "git+https://github.com/nermin99/nermin.skenderovic.se.git"
   },
   "keywords": [],
-  "author": "Nermin Skenderovic",
+  "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Nermin99/nermin.skenderovic.se/issues"
+    "url": "https://github.com/nermin99/nermin.skenderovic.se/issues"
   },
-  "homepage": "https://github.com/Nermin99/nermin.skenderovic.se#readme"
+  "homepage": "https://github.com/nermin99/nermin.skenderovic.se#readme",
+  "devDependencies": {
+    "prettier": "^2.2.1"
+  }
 }

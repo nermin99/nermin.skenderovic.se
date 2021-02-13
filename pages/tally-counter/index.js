@@ -19,11 +19,11 @@ function init() {
 
   columnData = {
     alt1: '',
-    alt2: ''
+    alt2: '',
   }
 
   // loads saved substances & column data
-  if (typeof (Storage) !== 'undefined') {
+  if (typeof Storage !== 'undefined') {
     if (localStorage.getItem('substances') !== null) {
       substanceS = load('substances')
     }
@@ -35,7 +35,7 @@ function init() {
 
   tallyCounter = {
     substances: substanceS,
-    columnData: columnData
+    columnData: columnData,
   }
 
   render()
@@ -72,7 +72,7 @@ function addNew() {
 }
 
 function removeOld(id) {
-  const substance = substanceS.find(sub => sub.id === id)
+  const substance = substanceS.find((sub) => sub.id === id)
 
   substanceS.splice(substanceS.indexOf(substance), 1)
   render()
@@ -126,17 +126,24 @@ function render() {
             <th scope="col">Size class</th>
             <th scope="col">Cell vol µm3</th>
             <th scope="col">Group</th>
-            <th scope="col" class="alt1" contenteditable="true" oninput="saveColumnData(this)">${columnData.alt1}</th>
-            <th scope="col" class="alt2" contenteditable="true" oninput="saveColumnData(this)" colspan="2">${columnData.alt2}</th>
+            <th scope="col" class="alt1" contenteditable="true" oninput="saveColumnData(this)">${
+              columnData.alt1
+            }</th>
+            <th scope="col" class="alt2" contenteditable="true" oninput="saveColumnData(this)" colspan="2">${
+              columnData.alt2
+            }</th>
           </thead>
           <tbody>
-          ${substanceS.map((substance, id) => {
-    const hotkey = substance.tallyKey
-    return `
+          ${substanceS
+            .map((substance, id) => {
+              const hotkey = substance.tallyKey
+              return `
               <tr data-id="${substance.id}">
                 <td class="id">${id}</td>
                 <td class="magnification input" oninput="saveEdit(this)">
-                  <input list="magnification-list" contenteditable="true" type="number" value="${substance.magnification}">
+                  <input list="magnification-list" contenteditable="true" type="number" value="${
+                    substance.magnification
+                  }">
 
                   <datalist id="magnification-list">
                     <option value="100">
@@ -144,27 +151,47 @@ function render() {
                     <option value="400">
                   </datalist>
                 </td>
-                <td class="countPart" contenteditable="true" oninput="saveEdit(this)">${substance.countPart}</td>
+                <td class="countPart" contenteditable="true" oninput="saveEdit(this)">${
+                  substance.countPart
+                }</td>
                 <td class="tallyKey" onclick="assignHotkey(${substance.id})">
-                  ${hotkey ? hotkey.shift ? 'shift +' : '' : ''}
-                  ${hotkey ? hotkey.ctrl ? 'ctrl +' : '' : ''}
-                  ${hotkey ? hotkey.alt ? 'alt +' : '' : ''}
+                  ${hotkey ? (hotkey.shift ? 'shift +' : '') : ''}
+                  ${hotkey ? (hotkey.ctrl ? 'ctrl +' : '') : ''}
+                  ${hotkey ? (hotkey.alt ? 'alt +' : '') : ''}
                   ${hotkey ? hotkey.key : 'no key'}
                 </td>
-                <td class="species" contenteditable="true" oninput="saveEdit(this)">${substance.species}</td>
-                <td class="cKoll100" contenteditable="true" oninput="saveEdit(this)">${substance.cKoll100}</td>
+                <td class="species" contenteditable="true" oninput="saveEdit(this)">${
+                  substance.species
+                }</td>
+                <td class="cKoll100" contenteditable="true" oninput="saveEdit(this)">${
+                  substance.cKoll100
+                }</td>
                 <td class="quantity input" contenteditable="true" oninput="saveEdit(this)">
-                  <input contenteditable="true" type="number" value="${substance.quantity}">
+                  <input contenteditable="true" type="number" value="${
+                    substance.quantity
+                  }">
                 </td>
-                <td class="sizeClass" contenteditable="true" oninput="saveEdit(this)">${substance.sizeClass}</td>
-                <td class="cellvolume" contenteditable="true" oninput="saveEdit(this)">${substance.cellvolume}</td>
-                <td class="group" contenteditable="true" oninput="saveEdit(this)">${substance.group}</td>
-                <td class="alt1" contenteditable="true" oninput="saveEdit(this)">${substance.alt1}</td>
-                <td class="alt2" contenteditable="true" oninput="saveEdit(this)">${substance.alt2}</td>
-                <td> <svg aria-hidden="true" data-prefix="fas" data-icon="minus-circle" class="svg-inline--fa fa-minus-circle fa-w-16 pointer" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" onclick="removeOld(${substance.id})"><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zM124 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H124z"></path></svg></td>
+                <td class="sizeClass" contenteditable="true" oninput="saveEdit(this)">${
+                  substance.sizeClass
+                }</td>
+                <td class="cellvolume" contenteditable="true" oninput="saveEdit(this)">${
+                  substance.cellvolume
+                }</td>
+                <td class="group" contenteditable="true" oninput="saveEdit(this)">${
+                  substance.group
+                }</td>
+                <td class="alt1" contenteditable="true" oninput="saveEdit(this)">${
+                  substance.alt1
+                }</td>
+                <td class="alt2" contenteditable="true" oninput="saveEdit(this)">${
+                  substance.alt2
+                }</td>
+                <td> <svg aria-hidden="true" data-prefix="fas" data-icon="minus-circle" class="svg-inline--fa fa-minus-circle fa-w-16 pointer" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" onclick="removeOld(${
+                  substance.id
+                })"><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zM124 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H124z"></path></svg></td>
               </tr>`
-  }
-  ).join('')}
+            })
+            .join('')}
             </tbody>
             <tfoot>
               <th class="pointer" colspan="13" onClick="addNew()">
@@ -181,7 +208,9 @@ function render() {
 }
 
 function saveEdit(e) {
-  const substance = substanceS.find(sub => sub.id == e.parentElement.dataset.id)
+  const substance = substanceS.find(
+    (sub) => sub.id == e.parentElement.dataset.id
+  )
 
   const input = e.querySelector('input') // check if cell element has an <input>
 
@@ -210,7 +239,13 @@ function assignHotkey(id) {
   currentElem.querySelector('.tallyKey').innerText = 'select key'
 
   window.removeEventListener('keyup', settingHotkey)
-  window.addEventListener('keyup', (e) => { settingHotkey(id, e) }, { once: true })
+  window.addEventListener(
+    'keyup',
+    (e) => {
+      settingHotkey(id, e)
+    },
+    { once: true }
+  )
   window.removeEventListener('keydown', runHotkey)
 }
 
@@ -219,12 +254,14 @@ function settingHotkey(id, e) {
 
   const keyCombo = getKeyCombo(e)
 
-  const otherSubstance = substanceS.find(sub => JSON.stringify(sub.tallyKey) === JSON.stringify(keyCombo))
+  const otherSubstance = substanceS.find(
+    (sub) => JSON.stringify(sub.tallyKey) === JSON.stringify(keyCombo)
+  )
 
   // If another substance already has the keyCombo replace its
   if (otherSubstance) otherSubstance.tallyKey = null
 
-  const substance = substanceS.find(sub => sub.id === id)
+  const substance = substanceS.find((sub) => sub.id === id)
   substance.tallyKey = keyCombo
 
   render()
@@ -239,7 +276,9 @@ function runHotkey(e) {
 
   const keyCombo = getKeyCombo(e)
 
-  const substance = substanceS.find(sub => JSON.stringify(sub.tallyKey) === JSON.stringify(keyCombo))
+  const substance = substanceS.find(
+    (sub) => JSON.stringify(sub.tallyKey) === JSON.stringify(keyCombo)
+  )
 
   // If hotkey exists
   if (!substance) return
@@ -251,25 +290,25 @@ function getKeyCombo(e) {
 
   // Special characters
   switch (e.keyCode) {
-  case 221:
-    key = 'Å'
-    break
-  case 222:
-    key = 'Ä'
-    break
-  case 192:
-    key = 'Ö'
-    break
-  case 32:
-    key = 'SPACE'
-    break
+    case 221:
+      key = 'Å'
+      break
+    case 222:
+      key = 'Ä'
+      break
+    case 192:
+      key = 'Ö'
+      break
+    case 32:
+      key = 'SPACE'
+      break
   }
 
   return {
     key: key,
     alt: e.altKey,
     ctrl: e.ctrlKey,
-    shift: e.shiftKey
+    shift: e.shiftKey,
   }
 }
 
@@ -280,7 +319,7 @@ function saveToFile() {
   // update tallyCounter
   tallyCounter = {
     substances: substanceS,
-    columnData: columnData
+    columnData: columnData,
   }
 
   const data = JSON.stringify(tallyCounter)
@@ -307,7 +346,8 @@ function initLoadFromFile() {
       return
     }
     // Check if file uploaded pre reader run
-    if (fileInput.files.length > 0) reader.readAsBinaryString(fileInput.files[fileInput.files.length - 1])
+    if (fileInput.files.length > 0)
+      reader.readAsBinaryString(fileInput.files[fileInput.files.length - 1])
   }
 
   reader.onload = function () {
@@ -359,14 +399,41 @@ function exportExcel() {
   const delimiter = ';'
   let csv = `\ufeffMagn x${delimiter}Count part${delimiter}Species${delimiter}C/kol/100µ${delimiter}No count${delimiter}Size class${delimiter}Cell vol µm3${delimiter}Group${delimiter}${columnData.alt1}${delimiter}${columnData.alt2}\r\n`
 
-  csv += substanceS.map(substance => `${substance.magnification + delimiter + substance.countPart + delimiter + substance.species + delimiter + substance.cKoll100 + delimiter + substance.quantity + delimiter + substance.sizeClass + delimiter + substance.cellvolume + delimiter + substance.group + delimiter + substance.alt1 + delimiter + substance.alt2}\r\n`).join('')
+  csv += substanceS
+    .map(
+      (substance) =>
+        `${
+          substance.magnification +
+          delimiter +
+          substance.countPart +
+          delimiter +
+          substance.species +
+          delimiter +
+          substance.cKoll100 +
+          delimiter +
+          substance.quantity +
+          delimiter +
+          substance.sizeClass +
+          delimiter +
+          substance.cellvolume +
+          delimiter +
+          substance.group +
+          delimiter +
+          substance.alt1 +
+          delimiter +
+          substance.alt2
+        }\r\n`
+    )
+    .join('')
 
   const blob = new Blob([csv], { type: 'text;charset=UTF-8;' })
-  if (navigator.msSaveBlob) { // IE 10+
+  if (navigator.msSaveBlob) {
+    // IE 10+
     navigator.msSaveBlob(blob, filename)
   } else {
     const link = document.createElement('a')
-    if (link.download !== undefined) { // feature detection
+    if (link.download !== undefined) {
+      // feature detection
       // Browsers that support HTML5 download attribute
       const url = URL.createObjectURL(blob)
       link.setAttribute('href', url)
@@ -388,7 +455,7 @@ function resetTable() {
 
 function resetQuantityColumn() {
   if (confirm('Är du säker på att du vill återställa antal-kolumnen?')) {
-    substanceS.forEach(substance => {
+    substanceS.forEach((substance) => {
       substance.quantity = 0
     })
     render()

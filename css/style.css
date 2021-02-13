@@ -50,7 +50,7 @@ body {
     var(--NS-black) 95%
   );
   color: var(--beige);
-  font-family: "Solway", serif;
+  font-family: 'Solway', serif;
 }
 
 body > * {

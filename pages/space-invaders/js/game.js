@@ -35,9 +35,9 @@ let nY = 1
 const gap = 20 // 2D gap between aliens
 const canvasWidth = 800
 const canvasHeight = 600
-let shotSpeed = canvasHeight / 600 * 500 // k * px/s
-let shipSpeed = canvasWidth / 800 * 400 // k * px/s
-let alienSpeed = canvasHeight / 600 * 80 // k * px/s
+let shotSpeed = (canvasHeight / 600) * 500 // k * px/s
+let shipSpeed = (canvasWidth / 800) * 400 // k * px/s
+let alienSpeed = (canvasHeight / 600) * 80 // k * px/s
 
 function init() {
   winSound.load()
@@ -66,7 +66,15 @@ function loadObjects() {
   for (let x = 0; x < nX; x++) {
     for (let y = 0; y < nY; y++) {
       const d = (canvasWidth - (nX * alienImg.width + (nX - 1) * gap)) / 2
-      alienArray.push(new Entity(x * (alienImg.width + gap) + d, y * (alienImg.height + gap), alienImg, alienSpeed, active))
+      alienArray.push(
+        new Entity(
+          x * (alienImg.width + gap) + d,
+          y * (alienImg.height + gap),
+          alienImg,
+          alienSpeed,
+          active
+        )
+      )
     }
   }
 
@@ -119,7 +127,8 @@ function update(deltaTime) {
 
   for (let i = 0; i < alienArray.length; i++) {
     alienArray[i].y += alienArray[i].speed * deltaTime
-    alienArray[i].x += 2 * Math.sin(alienArray[i].y) * alienArray[i].speed * deltaTime
+    alienArray[i].x +=
+      2 * Math.sin(alienArray[i].y) * alienArray[i].speed * deltaTime
   }
 }
 
@@ -135,7 +144,17 @@ function render(text, color) {
     if (alienArray[i].active) {
       ctx.drawImage(alienArray[i].img, alienArray[i].x, alienArray[i].y)
     } else {
-      ctx.drawImage(explosionImg, alienArray[i].getSrcX(), 0, alienArray[i].frameWidth, alienArray[i].frameHeight, alienArray[i].x, alienArray[i].y, alienArray[i].frameWidth, alienArray[i].frameHeight)
+      ctx.drawImage(
+        explosionImg,
+        alienArray[i].getSrcX(),
+        0,
+        alienArray[i].frameWidth,
+        alienArray[i].frameHeight,
+        alienArray[i].x,
+        alienArray[i].y,
+        alienArray[i].frameWidth,
+        alienArray[i].frameHeight
+      )
     }
   }
 
@@ -173,7 +192,12 @@ function render(text, color) {
 
 function fire() {
   if (shot == null) {
-    shot = new Entity(ship.x + (shipImg.width - shotImg.width) / 2, ship.y, shotImg, shotSpeed)
+    shot = new Entity(
+      ship.x + (shipImg.width - shotImg.width) / 2,
+      ship.y,
+      shotImg,
+      shotSpeed
+    )
     shotSound.load()
     shotSound.play()
   }
@@ -204,7 +228,14 @@ function checkCollisionAndRemove() {
           if (intersects(shot, alienArray[i])) {
             shot = null
             alienArray[i].active = false
-            alienArray[i] = new Explosion(alienArray[i].x, alienArray[i].y, explosionImg, alienArray[i].speed, alienArray[i].active, isRemovable)
+            alienArray[i] = new Explosion(
+              alienArray[i].x,
+              alienArray[i].y,
+              explosionImg,
+              alienArray[i].speed,
+              alienArray[i].active,
+              isRemovable
+            )
 
             points++
             hitSound.load()
@@ -214,7 +245,10 @@ function checkCollisionAndRemove() {
         }
 
         // Alien träffar botten
-        if (alienArray[i].y + alienImg.height > canvasHeight - 10 && gameRunning) {
+        if (
+          alienArray[i].y + alienImg.height > canvasHeight - 10 &&
+          gameRunning
+        ) {
           gameRunning = false
           shot = null
           render('Game Over', 'red')
@@ -261,10 +295,12 @@ function intersects(A, B) {
   const heightB = B.y + B.img.height
 
   //              overflow || intersect
-  return ((widthB < B.x || widthB > A.x) &&
-          (heightB < B.y || heightB > A.y) &&
-          (widthA < A.x || widthA > B.x) &&
-          (heightA < A.y || heightA > B.y))
+  return (
+    (widthB < B.x || widthB > A.x) &&
+    (heightB < B.y || heightB > A.y) &&
+    (widthA < A.x || widthA > B.x) &&
+    (heightA < A.y || heightA > B.y)
+  )
 }
 
 function restart(roundWin) {
@@ -284,7 +320,10 @@ function restart(roundWin) {
 
 function levels(roundWin) {
   if (roundWin) {
-    if (canvasWidth - (nX * alienImg.width + (nX - 1) * gap) > alienImg.width || nY * alienImg.height + nY * gap < ship.y - alienImg.height) {
+    if (
+      canvasWidth - (nX * alienImg.width + (nX - 1) * gap) > alienImg.width ||
+      nY * alienImg.height + nY * gap < ship.y - alienImg.height
+    ) {
       if (nX < 3) {
         nX++
       } else if (nY < 2) {
@@ -300,9 +339,15 @@ function levels(roundWin) {
       } else if (nY < 5) {
         nY++
         shotImg.src = 'images/missile.png' // Upgrade
-      } else if (canvasWidth - (nX * alienImg.width + (nX - 1) * gap) > alienImg.width) {
+      } else if (
+        canvasWidth - (nX * alienImg.width + (nX - 1) * gap) >
+        alienImg.width
+      ) {
         nX++
-      } else if (nY * alienImg.height + nY * gap < ship.y - (alienImg.height + gap)) {
+      } else if (
+        nY * alienImg.height + nY * gap <
+        ship.y - (alienImg.height + gap)
+      ) {
         nY++
       }
     }
@@ -314,9 +359,9 @@ function levels(roundWin) {
     level = 1
     nX = 1
     nY = 1
-    shotSpeed = canvasHeight / 600 * 500 // px/s
-    shipSpeed = canvasWidth / 800 * 400 // px/s
-    alienSpeed = canvasHeight / 600 * 80 // px/s
+    shotSpeed = (canvasHeight / 600) * 500 // px/s
+    shipSpeed = (canvasWidth / 800) * 400 // px/s
+    alienSpeed = (canvasHeight / 600) * 80 // px/s
   }
 }
 
