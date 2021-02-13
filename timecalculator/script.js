@@ -8,9 +8,9 @@ const handleSubmit = (e) => {
 const calculateTime = (input) => {
   const [end, start] = input.split('-').map((t) => t.split(':'))
 
-  let [HOUR, MIN, SEC = 0] = end
+  let [HOUR, MIN = 0, SEC = 0] = end
   const endDate = new Date(0, 0, 0, HOUR, MIN, SEC)
-  ;[HOUR, MIN, SEC = 0] = start
+  ;[HOUR, MIN = 0, SEC = 0] = start
   const startDate = new Date(0, 0, 0, HOUR, MIN, SEC)
 
   let delta = endDate.getTime() - startDate.getTime()
