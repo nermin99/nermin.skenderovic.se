@@ -1,5 +1,5 @@
-const handleSubmit = (e) => {
-  e.preventDefault()
+const handleEvent = (e) => {
+  if (e.type === 'submit') e.preventDefault()
 
   const input = document.querySelector('#input').value
   calculateTime(input)
@@ -25,3 +25,5 @@ const calculateTime = (input) => {
   resultElement.innerHTML =
     `${hours} hours ${minutes} min` + (seconds !== 0 ? ` ${seconds} sec` : '')
 }
+
+document.querySelector('#input').addEventListener('keyup', handleEvent)
