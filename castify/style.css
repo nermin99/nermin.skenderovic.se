@@ -1,0 +1,32 @@
+html {
+  box-sizing: border-box;
+  font-size: 10px;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  background: #7a419b;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #7c1599 0%, #921099 48%, #7e4ae8 100%);
+  background-size: cover;
+  align-items: center;
+  justify-content: center;
+}
+
+hr {
+  width: 100%;
+}
+
+#cast-btn {
+  width: 10rem;
+  height: 5rem;
+}

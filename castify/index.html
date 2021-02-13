@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Castify</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      defer
+      src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js"
+    ></script>
+    <script defer src="script.js"></script>
+  </head>
+
+  <body>
+    <form onsubmit="handleSubmit(event)">
+      <input
+        id="media-src"
+        style="width: 50vw"
+        type="text"
+        name="input"
+        autocomplete="off"
+        placeholder="src"
+        autofocus
+        value="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      />
+      <input type="submit" />
+    </form>
+
+    <br />
+
+    <button id="cast-btn">Castify</button>
+  </body>
+</html>
