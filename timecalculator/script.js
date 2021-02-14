@@ -1,12 +1,12 @@
-const handleEvent = (e) => {
-  if (e.type === 'submit') e.preventDefault()
-
-  const input = document.querySelector('#input').value
-  calculateTime(input)
+const computeElapsedTime = (parameters) => {
+  return 666
 }
 
-const calculateTime = (input) => {
-  const [end, start] = input.split('-').map((t) => t.split(':'))
+const computeTimeStroke = (parameters) => {
+  const [first, second] = parameters
+
+  const end = first.split(':')
+  const start = second.split(':')
 
   let [HOUR, MIN = 0, SEC = 0] = end
   const endDate = new Date(0, 0, 0, HOUR, MIN, SEC)
@@ -25,9 +25,28 @@ const calculateTime = (input) => {
   const [h, m, s] = Object.entries(times).map(([unit, t]) =>
     t === 0 ? '' : `${t} ${unit}${t === 1 ? '' : 's'} `
   )
+  return h + m + s
+}
+
+const handleInput = (input) => {
+  const parameters = input.split('-')
+
+  let result
+  if (parameters.some((parameter) => /h|m|s/.test(parameter))) {
+    result = computeElapsedTime(parameters)
+  } else {
+    result = computeTimeStroke(parameters)
+  }
 
   const resultElement = document.querySelector('#result')
-  resultElement.innerHTML = h + m + s
+  resultElement.innerHTML = result
+}
+
+const handleEvent = (e) => {
+  if (e.type === 'submit') e.preventDefault()
+
+  const input = document.querySelector('#input').value
+  handleInput(input)
 }
 
 document.querySelector('#input').addEventListener('keyup', handleEvent)

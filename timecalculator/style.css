@@ -16,14 +16,19 @@ body {
 }
 
 #calculator {
-  min-height: 7rem;
+  min-height: 9rem;
 }
 
 #input {
   width: 40vw;
+  font-size: 2rem;
+  padding: 4px 7px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 2px 2px 3px #6666669c;
 }
 
 #result {
   margin-top: 1rem;
-  font-size: 3rem;
+  font-size: 4rem;
 }
