@@ -10,20 +10,24 @@ const calculateTime = (input) => {
 
   let [HOUR, MIN = 0, SEC = 0] = end
   const endDate = new Date(0, 0, 0, HOUR, MIN, SEC)
-  ;[HOUR, MIN = 0, SEC = 0] = start
+  ;[HOUR = 0, MIN = 0, SEC = 0] = start
   const startDate = new Date(0, 0, 0, HOUR, MIN, SEC)
 
   let delta = endDate.getTime() - startDate.getTime()
 
-  const hours = Math.floor(delta / 1000 / 60 / 60) // ms -> s -> min -> h
-  delta -= hours * 1000 * 60 * 60
-  const minutes = Math.floor(delta / 1000 / 60) // ms -> s -> min
-  delta -= minutes * 1000 * 60
-  const seconds = Math.floor(delta / 1000) // ms -> s
+  const times = {}
+  times.hour = Math.floor(delta / 1000 / 60 / 60) // ms -> s -> min -> h
+  delta -= times.hour * 1000 * 60 * 60
+  times.minute = Math.floor(delta / 1000 / 60) // ms -> s -> min
+  delta -= times.minute * 1000 * 60
+  times.second = Math.floor(delta / 1000) // ms -> s
+
+  const [h, m, s] = Object.entries(times).map(([unit, t]) =>
+    t === 0 ? '' : `${t} ${unit}${t === 1 ? '' : 's'} `
+  )
 
   const resultElement = document.querySelector('#result')
-  resultElement.innerHTML =
-    `${hours} hours ${minutes} min` + (seconds !== 0 ? ` ${seconds} sec` : '')
+  resultElement.innerHTML = h + m + s
 }
 
 document.querySelector('#input').addEventListener('keyup', handleEvent)
