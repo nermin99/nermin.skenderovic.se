@@ -1,8 +1,52 @@
-const computeElapsedTime = (parameters) => {
-  return 666
+document.querySelector('#input').addEventListener('keyup', handleEvent)
+
+function handleEvent(e) {
+  if (e.type === 'submit') e.preventDefault()
+
+  const input = document.querySelector('#input').value
+  handleInput(input)
 }
 
-const computeTimeStroke = (parameters) => {
+function handleInput(input) {
+  const op = input.includes('-') ? '-' : '+'
+  const parameters = input.split(op)
+
+  let result
+  if (parameters.some((parameter) => /h|m|s/.test(parameter))) {
+    result = computeTimeStroke(parameters, op)
+  } else {
+    result = computeElapsedTime(parameters)
+  }
+
+  const resultElement = document.querySelector('#result')
+  resultElement.innerHTML = result
+}
+
+const mod = (n, m) => ((n % m) + m) % m
+const overflow = (t) => t < 0 || t > 60
+
+const computeTimeStroke = (parameters, op) => {
+  const [first, second] = parameters
+  const c = op === '+' ? 1 : -1
+
+  const [HOUR = 0, MINUTE = 0, SECOND = 0] = first.split(':')
+  const [, hours = 0, minutes = 0, seconds = 0] = second.match(
+    /(\d+)?[a-z](\d+)?[a-z]?(\d+)?[a-z]?/
+  )
+
+  const TIME = {}
+  TIME.second = eval(`${SECOND}${op}${seconds}`)
+  TIME.minute = eval(`${MINUTE}${op}${minutes}`) + (overflow(TIME.second) && c)
+  TIME.hour = eval(`${HOUR}${op}${hours}`) + (overflow(TIME.minute) && c)
+  TIME.second = mod(TIME.second, 60)
+  TIME.minute = mod(TIME.minute, 60)
+  TIME.hour = mod(TIME.hour, 24)
+
+  const [s, m, h] = Object.values(TIME).map((t) => (t < 10 ? `0${t}` : t))
+  return `${h}:${m}` + (s === '00' ? '' : `:${s}`)
+}
+
+const computeElapsedTime = (parameters) => {
   const [first, second] = parameters
 
   const end = first.split(':')
@@ -27,26 +71,3 @@ const computeTimeStroke = (parameters) => {
   )
   return h + m + s
 }
-
-const handleInput = (input) => {
-  const parameters = input.split('-')
-
-  let result
-  if (parameters.some((parameter) => /h|m|s/.test(parameter))) {
-    result = computeElapsedTime(parameters)
-  } else {
-    result = computeTimeStroke(parameters)
-  }
-
-  const resultElement = document.querySelector('#result')
-  resultElement.innerHTML = result
-}
-
-const handleEvent = (e) => {
-  if (e.type === 'submit') e.preventDefault()
-
-  const input = document.querySelector('#input').value
-  handleInput(input)
-}
-
-document.querySelector('#input').addEventListener('keyup', handleEvent)
