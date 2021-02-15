@@ -30,9 +30,9 @@ const computeTimeStroke = (parameters, op) => {
   const c = op === '+' ? 1 : -1
 
   const [HOUR = 0, MINUTE = 0, SECOND = 0] = first.split(':')
-  const [, hours = 0, minutes = 0, seconds = 0] = second.match(
-    /(\d+)?[a-z](\d+)?[a-z]?(\d+)?[a-z]?/
-  )
+  const regxp = /(?<hours>\d+(?=h))?[hms]?(?<minutes>\d+(?=m))?[hms]?(?<seconds>\d+(?=s))?/
+  const match = regxp.exec(second)
+  const { hours = 0, minutes = 0, seconds = 0 } = match.groups
 
   const TIME = {}
   TIME.second = eval(`${SECOND}${op}${seconds}`)
