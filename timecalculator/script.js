@@ -30,7 +30,7 @@ const computeTimeStroke = (parameters, op) => {
   const c = op === '+' ? 1 : -1
 
   const [HOUR = 0, MINUTE = 0, SECOND = 0] = first.split(':')
-  const regxp = /(?<hours>\d+(?=h))?[hms]?(?<minutes>\d+(?=m))?[hms]?(?<seconds>\d+(?=s))?/
+  const regxp = /(?<hours>\d+(?=h))?h?(?<minutes>\d+(?=m))?m?(?<seconds>\d+(?=s))?/
   const match = regxp.exec(second)
   const { hours = 0, minutes = 0, seconds = 0 } = match.groups
 
