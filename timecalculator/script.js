@@ -9,7 +9,7 @@ function handleEvent(e) {
 
 function handleInput(input) {
   const op = input.includes('-') ? '-' : '+'
-  const parameters = input.split(op)
+  const parameters = input.split(op).map((s) => s.trim())
 
   let result
   if (parameters.some((parameter) => /h|m|s/.test(parameter))) {
