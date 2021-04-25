@@ -38,4 +38,4 @@ jobs:
           port: 22
           script: |
             cd /var/www/nermin.skenderovic.se
-            git pull
+            git pull --recurse-submodules
