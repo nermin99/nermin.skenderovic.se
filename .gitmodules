@@ -1,0 +1,3 @@
+[submodule "timecalculator"]
+	path = timecalculator
+	url = https://github.com/nermin99/timecalculator.git
