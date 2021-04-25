@@ -22,3 +22,10 @@ jobs:
       # Runs a single command using the runners shell
       - name: Fetch & merge all submodules recursively
         run: git submodule update --recursive --remote
+
+      - name: Commit update
+        run: |
+          git config --global user.name 'Nermin Skenderovic'
+          git config --global user.email 'nermin@skenderovic.se'
+          git commit -am "Update submodules"
+          git push
