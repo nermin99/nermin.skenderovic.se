@@ -22,7 +22,7 @@ jobs:
       # Update submodules and commit
       - name: Fetch & merge all submodules recursively
         run: |
-          git submodule update --init --recursive
+          git pull --recurse-submodules
           git submodule update --recursive --remote
           git config --global user.name 'Nermin Skenderovic'
           git config --global user.email 'nermin@skenderovic.se'
