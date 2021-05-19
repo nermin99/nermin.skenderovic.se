@@ -20,8 +20,11 @@ jobs:
           git submodule update --recursive --remote
 
       - name: Commit & push changes
+        env:
+          GIT_NAME: ${{ secrets.GIT_NAME }}
+          GIT_EMAIL: ${{ secrets.GIT_EMAIL }}
         run: |
-          git config --global user.name ${{ secrets.GIT_NAME }}
-          git config --global user.email ${{ secrets.GIT_EMAIL }}
+          git config --global user.name "$GIT_NAME"
+          git config --global user.email "$GIT_EMAIL"
           git commit -am "Update submodules"
           git push
