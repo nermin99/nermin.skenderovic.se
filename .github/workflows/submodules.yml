@@ -20,6 +20,7 @@ jobs:
           git submodule update --recursive --remote
 
       - name: Commit & push changes
+      - shell: bash
         env:
           GIT_NAME: ${{ secrets.GIT_NAME }}
           GIT_EMAIL: ${{ secrets.GIT_EMAIL }}
