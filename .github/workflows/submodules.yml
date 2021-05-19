@@ -21,7 +21,7 @@ jobs:
 
       - name: Commit & push changes
         run: |
-          git config --global user.name 'Nermin Skenderovic'
-          git config --global user.email 'nermin@skenderovic.se'
+          git config --global user.name ${{ secrets.GIT_NAME }}
+          git config --global user.email ${{ secrets.GIT_EMAIL }}
           git commit -am "Update submodules"
           git push
