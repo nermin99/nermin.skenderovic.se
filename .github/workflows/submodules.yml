@@ -25,3 +25,18 @@ jobs:
           git config --global user.email 'nermin@skenderovic.se'
           git commit -am "Update submodules"
           git push
+  
+  deploy:
+    needs: [update]
+    runs-on: ubuntu-latest
+    steps:
+      - name: executing remote ssh commands
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          password: ${{ secrets.SSH_PASS }}
+          port: 22
+          script: |
+            cd /var/www/nermin.skenderovic.se
+            git pull --recurse-submodules
