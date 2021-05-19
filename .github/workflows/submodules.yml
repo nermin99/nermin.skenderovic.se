@@ -25,7 +25,7 @@ jobs:
           git config --global user.email 'nermin@skenderovic.se'
           git commit -am "Update submodules"
           git push
-  
+
   deploy:
     needs: [update]
     runs-on: ubuntu-latest
