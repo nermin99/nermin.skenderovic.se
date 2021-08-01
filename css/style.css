@@ -86,8 +86,8 @@ header #logo {
   padding: 2rem;
   padding-right: 4rem;
   background-color: rgba(0, 0, 0, 0.01);
-  box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.1),
-    -5px -5px 5px 0 rgba(0, 0, 0, 0.02);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1),
+    -5px -5px 10px rgba(0, 0, 0, 0.03);
   border-radius: 2rem;
   color: var(--NS-white);
 
