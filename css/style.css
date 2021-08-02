@@ -1,12 +1,10 @@
 :root {
   /* Colors */
-  --orange-primary: #f47028;
-  --orange-secondary: #f79545;
-  --NS-white: #dddddd;
+  --primary: #2c394b;
+  --secondary: #dddddd;
+  --tertiary: #ff4c29;
+  --quaternary: #334756;
   --NS-black: #262626;
-  --brown: #784822;
-  --beige: #f9bf90;
-
   --boxGap: 1%;
 }
 
@@ -43,13 +41,8 @@ body {
   flex-direction: column;
   align-items: center;
 
-  background-color: var(--orange-primary);
-  background: linear-gradient(
-    180deg,
-    var(--orange-primary) 0%,
-    var(--NS-black) 95%
-  );
-  color: var(--beige);
+  background: var(--primary);
+  color: var(--secondary);
   font-family: 'Solway', serif;
 }
 
@@ -61,18 +54,19 @@ header {
   height: fit-content;
   display: flex;
   justify-content: center;
-  margin-top: 2em;
+  margin: 3em 0;
 }
 
 header #logo {
-  height: 11em;
+  height: 9em;
   width: auto;
+  border-radius: 50%;
 }
 
 #projects {
   max-width: 100rem;
   width: fit-content;
-  margin: 3em 0;
+  margin-bottom: 3em;
   padding: 0 1rem;
   display: flex;
   justify-content: center;
@@ -83,17 +77,16 @@ header #logo {
   cursor: pointer;
   width: calc(50% - 2 * var(--boxGap));
   margin: var(--boxGap);
-  padding: 2rem;
-  padding-right: 4rem;
-  background-color: rgba(0, 0, 0, 0.01);
+  padding: 1.5em;
+  background: var(--quaternary);
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1),
     -5px -5px 10px rgba(0, 0, 0, 0.03);
   border-radius: 2rem;
-  color: var(--NS-white);
-
+  color: var(--secondary);
   position: relative;
   display: flex;
   flex-direction: column;
+  line-height: 1.5em;
 }
 
 .project:hover {
@@ -104,16 +97,13 @@ header #logo {
 .project h2 {
   font-size: 2rem;
   margin-bottom: 0.5em;
-  color: var(--orange-secondary);
+  color: var(--tertiary);
 }
 
 .project a {
   position: absolute;
   right: 1rem;
   bottom: 1rem;
-  /* border-radius: 100%; */
-  /* background-color: var(--orange-secondary); */
-  /* color: var(--NS-black); */
 }
 
 .project a .fa-stack {
@@ -121,11 +111,10 @@ header #logo {
 }
 
 .project a .icon-circle {
-  color: var(--NS-black);
+  color: var(--primary);
 }
 
 .project a .icon-arrow {
-  color: var(--orange-secondary);
   font-size: 1.4rem;
 }
 
@@ -133,22 +122,23 @@ footer {
   margin-top: auto;
   width: 100%;
   min-height: 33vh;
-  color: var(--NS-white);
-  /* background-color: var(--NS-black); */
-
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
 }
 
-#info {
-  margin-left: 8rem;
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 8rem;
+  width: 100%;
+  flex-wrap: wrap;
 }
 
 #info h1 {
   font-size: 4.4rem;
-  color: var(--orange-secondary);
+  color: var(--tertiary);
 }
 
 #info h2 {
@@ -160,8 +150,8 @@ footer {
 }
 
 #social-links {
-  margin-right: 8rem;
-  color: var(--orange-secondary);
+  color: var(--secondary);
+  align-self: flex-end;
 }
 
 #social-links .icon-social {
@@ -173,6 +163,9 @@ footer {
   #projects .project {
     width: 100%;
   }
+  #projects .project:not(:last-child) {
+    margin-bottom: 1em;
+  }
 
   footer {
     flex-direction: column;
@@ -182,8 +175,19 @@ footer {
     padding: 1rem;
   }
 
+  .footer-content {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+  }
+
   footer #social-links {
     margin: 0;
+    align-self: initial;
   }
 
   footer #info {
