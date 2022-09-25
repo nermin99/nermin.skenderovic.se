@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format": "prettier --check components pages styles",
+    "format:fix": "prettier --write components pages styles"
   },
   "dependencies": {
     "next": "12.3.1",
@@ -14,11 +16,14 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "@nermin99/prettier-config": "^1.0.1",
     "@types/node": "18.7.20",
     "@types/react": "18.0.21",
     "@types/react-dom": "18.0.6",
     "eslint": "8.24.0",
     "eslint-config-next": "12.3.1",
+    "prettier": "^2.7.1",
     "typescript": "4.8.3"
-  }
+  },
+  "prettier": "@nermin99/prettier-config"
 }
