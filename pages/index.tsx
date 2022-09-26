@@ -5,7 +5,7 @@ import styles from '../styles/Home.module.css'
 
 const Home: NextPage = () => {
   return (
-    <div className={styles.container}>
+    <>
       <Head>
         <title>Nermin Skenderovic</title>
         <meta
@@ -14,6 +14,12 @@ const Home: NextPage = () => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
+      <header className={styles.header}>
+        <div className={styles.logo_container}>
+          <Image className={styles.logo} src="/images/logo.jpg" alt="NS Logo" layout="fill" />
+        </div>
+      </header>
 
       <main className={styles.main}>
         <h1 className={styles.title}>
@@ -65,7 +71,7 @@ const Home: NextPage = () => {
           </span>
         </a>
       </footer>
-    </div>
+    </>
   )
 }
 
