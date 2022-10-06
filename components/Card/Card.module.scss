@@ -1,0 +1,22 @@
+.card {
+  padding: 1.5em;
+  text-align: left;
+  color: inherit;
+  background: var(--quaternary);
+  text-decoration: none;
+  border: 1px solid #eaeaea;
+  border-radius: 2rem;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.grid_item {
+  /* width: 48%; */
+}
+
+.title {
+  color: var(--tertiary);
+}
+
+.description {
+  color: var(--secondary);
+}
