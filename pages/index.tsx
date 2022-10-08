@@ -23,7 +23,7 @@ const Home: NextPage = () => {
       </header>
 
       <main className={styles.main}>
-        <div className={`${styles.projects} ${styles.grid_container}`}>
+        <div className={styles.grid_container}>
           <h1 className={`${styles.title} ${styles.grid_item_1}`}>Projects:</h1>
           <Card
             title="Time Calculator"
@@ -49,16 +49,55 @@ const Home: NextPage = () => {
       </main>
 
       <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
+        <div className={styles.info}>
+          <h1 title="Ninja">Nermin Skenderovic</h1>
+          <h2>M.Sc. Data Science & AI</h2>
+          <h2>B.Sc. Computer Science & Engineering</h2>
+          <h3>Gothenburg, Sweden</h3>
+        </div>
+
+        <div className={styles.social_links}>
+          <a href="mailto:nermin@skenderovic.se">
+            <Image
+              className={styles.icon_img}
+              src="/icons/gmail.png"
+              alt="gmail"
+              height="50px"
+              width="50px"
+              // layout="fill"
+            />
+          </a>
+          <a href="https://www.linkedin.com/in/nermin-skenderovic/">
+            <Image
+              className={styles.icon_img}
+              src="/icons/linkedin.png"
+              alt="linkedin"
+              height="50px"
+              width="50px"
+              // layout="fill"
+            />
+          </a>
+          <a href="https://github.com/nermin99">
+            <Image
+              className={styles.icon_img}
+              src="/icons/github.png"
+              alt="github"
+              height="50px"
+              width="50px"
+              // layout="fill"
+            />
+          </a>
+          <a href="https://stackoverflow.com/users/7012917/nermin">
+            <Image
+              className={styles.icon_img}
+              src="/icons/stack-overflow.png"
+              alt="stack-overflow"
+              height="50px"
+              width="50px"
+              // layout="fill"
+            />
+          </a>
+        </div>
       </footer>
     </>
   )

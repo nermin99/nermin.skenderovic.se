@@ -16,14 +16,23 @@
 html {
   font-size: 62.5%;
 }
+
 body {
   font-size: 1.6em;
   font-family: Solway, sans-serif, Helvetica, Arial, Roboto, -apple-system, serif;
+  color: var(--secondary);
+  background: var(--primary);
 }
 
-body {
-  background: var(--primary);
-  color: var(--secondary);
+html,
+body,
+#__next {
+  height: 100%;
+}
+
+#__next {
+  display: flex;
+  flex-direction: column;
 }
 
 a {
