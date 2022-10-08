@@ -1,22 +1,33 @@
 .card {
   padding: 1.5em;
   text-align: left;
-  color: inherit;
+  color: var(--secondary);
   background: var(--quaternary);
-  text-decoration: none;
-  border: 1px solid #eaeaea;
+  border: 1px solid var(--quaternary);
   border-radius: 2rem;
+  box-shadow: 5px 5px 10px rgb(0 0 0 / 10%), -5px -5px 10px rgb(0 0 0 / 3%);
   transition: color 0.15s ease, border-color 0.15s ease;
+  text-decoration: none;
+  line-height: 1.5em;
 }
 
-.grid_item {
-  /* width: 48%; */
-}
+// .grid_item {
+// }
 
 .title {
-  color: var(--tertiary);
+  color: inherit;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.5em;
 }
 
 .description {
   color: var(--secondary);
+}
+
+.card:hover,
+.card:focus,
+.card:active {
+  color: var(--tertiary);
+  border-color: var(--tertiary);
 }

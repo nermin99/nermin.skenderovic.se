@@ -1,11 +1,10 @@
 :root {
-  /* Colors */
   --primary: #2c394b;
   --secondary: #dddddd;
   --tertiary: #ff4c29;
   --quaternary: #334756;
   --NS-black: #262626;
-  --boxGap: 1%;
+  --gridGap: 2rem;
 }
 
 * {

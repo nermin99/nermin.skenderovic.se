@@ -23,9 +23,8 @@ const Home: NextPage = () => {
       </header>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>Projects:</h1>
-
         <div className={`${styles.projects} ${styles.grid_container}`}>
+          <h1 className={`${styles.title} ${styles.grid_item_1}`}>Projects:</h1>
           <Card
             title="Time Calculator"
             description="A calculator for calculating time, both in the sense of elapsed time but also time strokes."
