@@ -36,13 +36,19 @@
     gap: 10px;
 
     a {
+      height: 50px;
+      width: 50px;
+      position: relative;
       display: flex;
       justify-content: center;
       align-items: center;
       flex-grow: 1;
 
+      &.email {
+        width: 60px;
+      }
+
       .icon_img {
-        height: 50px;
         filter: grayscale(100%);
         transition: 0.2s ease-in-out;
 
@@ -89,7 +95,7 @@
   }
 
   .footer {
-    padding: 2em 0;
+    padding: 2em 0.5em;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;

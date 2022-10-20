@@ -57,14 +57,12 @@ const Home: NextPage = () => {
         </div>
 
         <div className={styles.social_links}>
-          <a href="mailto:nermin@skenderovic.se">
+          <a href="mailto:nermin@skenderovic.se" className={styles.email}>
             <Image
               className={styles.icon_img}
               src="/icons/gmail.png"
               alt="gmail"
-              height="50px"
-              width="50px"
-              // layout="fill"
+              layout="fill"
             />
           </a>
           <a href="https://www.linkedin.com/in/nermin-skenderovic/">
@@ -72,9 +70,7 @@ const Home: NextPage = () => {
               className={styles.icon_img}
               src="/icons/linkedin.png"
               alt="linkedin"
-              height="50px"
-              width="50px"
-              // layout="fill"
+              layout="fill"
             />
           </a>
           <a href="https://github.com/nermin99">
@@ -82,9 +78,7 @@ const Home: NextPage = () => {
               className={styles.icon_img}
               src="/icons/github.png"
               alt="github"
-              height="50px"
-              width="50px"
-              // layout="fill"
+              layout="fill"
             />
           </a>
           <a href="https://stackoverflow.com/users/7012917/nermin">
@@ -92,9 +86,7 @@ const Home: NextPage = () => {
               className={styles.icon_img}
               src="/icons/stack-overflow.png"
               alt="stack-overflow"
-              height="50px"
-              width="50px"
-              // layout="fill"
+              layout="fill"
             />
           </a>
         </div>
