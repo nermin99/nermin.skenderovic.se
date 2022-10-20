@@ -9,7 +9,7 @@ interface CardProps {
 export default function Card(props: CardProps) {
   return (
     <a href={props.link} className={`${styles.card} ${styles.grid_item}`}>
-      <h2 className={styles.title}>{props.title} &rarr;</h2>
+      <h2 className={styles.title}>{props.title}</h2>
       <p className={styles.description}>{props.description}</p>
       {/* &rarr; */}
     </a>
