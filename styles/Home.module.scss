@@ -109,6 +109,10 @@
         font-size: 1.1em;
       }
     }
+
+    .social_links a .icon_img {
+      filter: grayscale(0%);
+    }
   }
 }
 
