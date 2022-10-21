@@ -33,7 +33,7 @@ const Home: NextPage = () => {
           <Card
             title="Space Invaders"
             description='"Space Invaders"-like game with object-oriented JS.'
-            link="https://google.se"
+            link="https://nermin99.github.io/SpaceInvaders-JS/"
           />
           <Card
             title="Prime Factorizer"
