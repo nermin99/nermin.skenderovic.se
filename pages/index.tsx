@@ -31,9 +31,9 @@ const Home: NextPage = () => {
             link="https://nermin99.github.io/timecalculator/"
           />
           <Card
-            title="Space Invaders"
-            description='"Space Invaders"-like game with object-oriented JS.'
-            link="https://nermin99.github.io/SpaceInvaders-JS/"
+            title="@nermin99/priorityqueue"
+            description='A simple and lightweight JavaScript priority queue library focused on functionality.'
+            link="https://www.npmjs.com/package/@nermin99/priorityqueue"
           />
           <Card
             title="Prime Factorizer"
