@@ -24,9 +24,11 @@ export default function Card(props: CardProps) {
       className={`${styles.card} ${styles.grid_item}`}
       onMouseMove={handleOnMouseMove}
     >
-      <h2 className={styles.title}>{props.title}</h2>
-      <p className={styles.description}>{props.description}</p>
-      {/* &rarr; */}
+      <div className={styles.card_content}>
+        <h2 className={styles.title}>{props.title}</h2>
+        <p className={styles.description}>{props.description}</p>
+        {/* &rarr; */}
+      </div>
     </a>
   )
 }

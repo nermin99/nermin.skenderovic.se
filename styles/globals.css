@@ -1,9 +1,9 @@
 :root {
-  --primary: #2c394b;
-  --secondary: #dddddd;
-  --tertiary: #ff4c29;
-  --quaternary: #334756;
-  --NS-black: #262626;
+  --primary: rgb(44, 57, 75); /* #2c394b */
+  --secondary: rgb(221, 221, 221); /* #dddddd */
+  --tertiary: rgb(255, 76, 41); /* #ff4c29 */
+  --quaternary: rgb(51, 71, 86); /* #334756 */
+  --NS-black: rgb(38, 38, 38); /* #262626 */
   --gridGap: 2rem;
 }
 
