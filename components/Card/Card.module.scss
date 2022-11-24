@@ -1,21 +1,83 @@
+/*
+  Windows 10 tile hover effect
+  https://www.youtube.com/watch?v=htGfnF1zN4g
+  https://codepen.io/Hyperplexed/pen/MWQeYLW
+
+  ::before can be thought of as "background"
+  ::after can be thought of as "border"
+*/
+
+// variables for radial gradient hover effect
+$background-radius: 1000px;
+$background-alpha: 0.06;
+$background-transparent: 40%;
+$border-radius: 500px;
+$border-alpha: 0.6;
+$border-transparent: 40%;
+
 .card {
+  background-color: var(--quaternary);
+  border-radius: 20px;
+  position: relative;
+  box-shadow: 5px 5px 10px rgb(0 0 0 / 10%), -5px -5px 10px rgb(0 0 0 / 3%);
+}
+
+.card_content {
   padding: 1.5em;
   text-align: left;
-  // color: var(--secondary);
-  background: var(--quaternary);
-  border: 1px solid var(--quaternary);
-  border-radius: 20px;
-  box-shadow: 5px 5px 10px rgb(0 0 0 / 10%), -5px -5px 10px rgb(0 0 0 / 3%);
-  transition: color 0.15s ease, border-color 0.15s ease;
+  color: var(--secondary);
+  transition: color 0.15s ease;
   text-decoration: none;
   line-height: 1.5em;
+}
 
-  &:hover,
-  &:focus,
-  &:active {
-    // color: var(--tertiary);
-    border-color: var(--tertiary);
-  }
+.card:hover::before,
+.card:hover::after {
+  opacity: 1;
+}
+
+.card::before,
+.card::after {
+  opacity: 0;
+  content: '';
+  position: absolute;
+  border-radius: inherit;
+  height: 100%;
+  width: 100%;
+  left: 0px;
+  top: 0px;
+  transition: opacity 500ms;
+  z-index: 2;
+}
+
+// background
+.card::before {
+  background: radial-gradient(
+    $background-radius circle at var(--mouse-x) var(--mouse-y),
+    rgba(255, 255, 255, $background-alpha),
+    transparent $background-transparent
+  );
+  z-index: 3;
+}
+
+// border
+.card::after {
+  background: radial-gradient(
+    $border-radius circle at var(--mouse-x) var(--mouse-y),
+    rgba(255, 255, 255, $border-alpha),
+    transparent $border-transparent
+  );
+  z-index: 1;
+}
+
+.card > .card_content {
+  position: relative;
+  background-color: var(--quaternary);
+  border-radius: inherit;
+  margin: 1px;
+  height: calc(100% - 2px);
+  width: calc(100% - 2px);
+  z-index: 2;
 }
 
 // .grid_item {
