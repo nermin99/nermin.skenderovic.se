@@ -2,20 +2,44 @@
   padding: 1.5em;
   text-align: left;
   // color: var(--secondary);
-  background: var(--quaternary);
-  border: 1px solid var(--quaternary);
+  background-color: #33475677;
+  // opacity: 0.5;
+  border: 1px solid #33475677;
   border-radius: 20px;
   box-shadow: 5px 5px 10px rgb(0 0 0 / 10%), -5px -5px 10px rgb(0 0 0 / 3%);
   transition: color 0.15s ease, border-color 0.15s ease;
   text-decoration: none;
   line-height: 1.5em;
 
-  &:hover,
-  &:focus,
-  &:active {
-    // color: var(--tertiary);
-    border-color: var(--tertiary);
-  }
+  // &:hover,
+  // &:focus,
+  // &:active {
+  //   // color: var(--tertiary);
+  //   border-color: var(--tertiary);
+  // }
+  position: relative;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card::before {
+  background: radial-gradient(
+    800px circle at var(--mouse-x) var(--mouse-y),
+    rgba(255, 255, 255, 0.06),
+    transparent 40%
+  );
+  border-radius: inherit;
+  content: '';
+  height: 100%;
+  left: 0px;
+  opacity: 0;
+  position: absolute;
+  top: 0px;
+  transition: opacity 500ms;
+  width: 100%;
+  z-index: 2;
 }
 
 // .grid_item {
