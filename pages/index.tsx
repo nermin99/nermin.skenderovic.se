@@ -53,7 +53,7 @@ const Home: NextPage = () => {
           <h1 title="Ninja">Nermin Skenderovic</h1>
           <h2>M.Sc. Data Science & AI</h2>
           <h2>B.Sc. Computer Science & Engineering</h2>
-          <h3>Gothenburg, Sweden</h3>
+          <h3>Copenhagen, Denmark</h3>
         </div>
 
         <div className={styles.social_links}>
