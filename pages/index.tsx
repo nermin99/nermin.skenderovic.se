@@ -43,7 +43,7 @@ const Home: NextPage = () => {
           <Card
             title="NAED.se"
             description="Website for NAED Byggkonsult, a construction consultant dealing with building permits, consultation and drawings."
-            link="https://naed.se/"
+            link="https://github.com/nermin99/naed.se"
           />
         </div>
       </main>
