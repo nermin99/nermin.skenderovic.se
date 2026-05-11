@@ -26,8 +26,8 @@ const Home: NextPage = () => {
         <div className={styles.grid_container}>
           {/* <h1 className={`${styles.title} ${styles.grid_item_1}`}>Projects:</h1> */}
           <Card
-            title="Time Calculator"
-            description="A calculator for calculating time, both in the sense of elapsed time but also time strokes."
+            title="TimeCalculator.guru"
+            description="Free online easy to use calculator for time and duration expressions."
             link="https://nermin99.github.io/timecalculator/"
           />
           <Card
