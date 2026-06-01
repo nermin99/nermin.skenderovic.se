@@ -1,10 +1,29 @@
 :root {
-  --primary: rgb(44, 57, 75); /* #2c394b */
-  --secondary: rgb(221, 221, 221); /* #dddddd */
-  --tertiary: rgb(255, 76, 41); /* #ff4c29 */
-  --quaternary: rgb(51, 71, 86); /* #334756 */
-  --NS-black: rgb(38, 38, 38); /* #262626 */
-  --gridGap: 2rem;
+  /* Surface palette — deep navy with subtle blue undertones */
+  --bg-base: #0b1120;
+  --bg-elevated: #111a2e;
+  --surface: rgba(255, 255, 255, 0.04);
+  --surface-strong: rgba(255, 255, 255, 0.07);
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.16);
+
+  /* Text */
+  --text-primary: #f2f5fa;
+  --text-secondary: #9aa7bd;
+  --text-muted: #64748b;
+
+  /* Accent — warm orange carried over from the original brand */
+  --accent: #ff5a36;
+  --accent-soft: #ff8a6b;
+  --accent-glow: rgba(255, 90, 54, 0.35);
+  --accent-blue: #4f7cff;
+
+  /* Effects */
+  --radius: 18px;
+  --radius-lg: 24px;
+  --grid-gap: 1.5rem;
+  --shadow-card: 0 1px 1px rgba(0, 0, 0, 0.1), 0 10px 30px -12px rgba(0, 0, 0, 0.6);
+  --shadow-card-hover: 0 1px 1px rgba(0, 0, 0, 0.1), 0 24px 50px -20px rgba(0, 0, 0, 0.7);
 }
 
 * {
@@ -15,24 +34,53 @@
 
 html {
   font-size: 62.5%;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  font-size: 1.6em;
-  font-family: Solway, sans-serif, Helvetica, Arial, Roboto, -apple-system, serif;
-  color: var(--secondary);
-  background: var(--primary);
+  font-size: 1.6rem;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial,
+    sans-serif;
+  color: var(--text-secondary);
+  background-color: var(--bg-base);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Ambient gradient glow that sits behind everything */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(60rem 60rem at 15% -10%, rgba(79, 124, 255, 0.18), transparent 60%),
+    radial-gradient(50rem 50rem at 100% 0%, rgba(255, 90, 54, 0.16), transparent 55%),
+    radial-gradient(55rem 55rem at 50% 120%, rgba(79, 124, 255, 0.1), transparent 60%);
+  pointer-events: none;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Sora', 'Inter', sans-serif;
+  color: var(--text-primary);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
 }
 
 html,
 body,
 #__next {
-  height: 100%;
+  min-height: 100%;
 }
 
 #__next {
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
 }
 
 a {
@@ -40,12 +88,11 @@ a {
   text-decoration: none;
 }
 
-/* @media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
   }
-  body {
-    color: white;
-    background: black;
-  }
-} */
+}

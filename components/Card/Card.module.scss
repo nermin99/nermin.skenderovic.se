@@ -1,34 +1,68 @@
 /*
-  Windows 10 tile hover effect
-  https://www.youtube.com/watch?v=htGfnF1zN4g
-  https://codepen.io/Hyperplexed/pen/MWQeYLW
-
-  ::before can be thought of as "background"
-  ::after can be thought of as "border"
+  Frosted-glass project card with a cursor-tracking radial glow.
+  ::before  -> soft highlight that follows the mouse ("light")
+  ::after   -> brighter glow on the border edge ("border")
 */
 
-// variables for radial gradient hover effect
-$background-radius: 1000px;
-$background-alpha: 0.06;
-$background-transparent: 40%;
-$border-radius: 500px;
-$border-alpha: 0.6;
-$border-transparent: 40%;
+// cursor-tracking glow tuning
+$background-radius: 280px;
+$border-radius-glow: 200px;
 
 .card {
-  background-color: var(--quaternary);
-  border-radius: 20px;
   position: relative;
-  box-shadow: 5px 5px 10px rgb(0 0 0 / 10%), -5px -5px 10px rgb(0 0 0 / 3%);
+  display: block;
+  border-radius: var(--radius);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-card);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  overflow: hidden;
 }
 
-.card_content {
-  padding: 1.5em;
-  text-align: left;
-  color: var(--secondary);
-  transition: color 0.15s ease;
-  text-decoration: none;
-  line-height: 1.5em;
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-card-hover);
+}
+
+// the mouse-following glows
+.card::before,
+.card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 400ms ease;
+  pointer-events: none;
+}
+
+// inner highlight
+.card::before {
+  background: radial-gradient(
+    $background-radius circle at var(--mouse-x) var(--mouse-y),
+    rgba(255, 138, 107, 0.12),
+    transparent 65%
+  );
+  z-index: 1;
+}
+
+// brighter edge accent
+.card::after {
+  background: radial-gradient(
+    $border-radius-glow circle at var(--mouse-x) var(--mouse-y),
+    var(--accent-glow),
+    transparent 60%
+  );
+  z-index: 0;
+  // render only as a 1px ring on the border
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  padding: 1px;
 }
 
 .card:hover::before,
@@ -36,60 +70,49 @@ $border-transparent: 40%;
   opacity: 1;
 }
 
-.card::before,
-.card::after {
-  opacity: 0;
-  content: '';
-  position: absolute;
-  border-radius: inherit;
-  height: 100%;
-  width: 100%;
-  left: 0px;
-  top: 0px;
-  transition: opacity 500ms;
-  z-index: 2;
-}
-
-// background
-.card::before {
-  background: radial-gradient(
-    $background-radius circle at var(--mouse-x) var(--mouse-y),
-    rgba(255, 255, 255, $background-alpha),
-    transparent $background-transparent
-  );
-  z-index: 3;
-}
-
-// border
-.card::after {
-  background: radial-gradient(
-    $border-radius circle at var(--mouse-x) var(--mouse-y),
-    rgba(255, 255, 255, $border-alpha),
-    transparent $border-transparent
-  );
-  z-index: 1;
-}
-
-.card > .card_content {
+.card_content {
   position: relative;
-  background-color: var(--quaternary);
-  border-radius: inherit;
-  margin: 1px;
-  height: calc(100% - 2px);
-  width: calc(100% - 2px);
   z-index: 2;
+  padding: 1.75rem;
 }
 
-// .grid_item {
-// }
+.card_header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.6rem;
+}
 
 .title {
-  color: var(--tertiary);
-  font-size: 1.2em;
-  font-weight: bold;
-  margin-bottom: 0.5em;
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  word-break: break-word;
+}
+
+.arrow {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 999px;
+  color: var(--text-muted);
+  background: var(--surface-strong);
+  border: 1px solid var(--border);
+  transition: transform 0.25s ease, color 0.25s ease, background 0.25s ease;
+}
+
+.card:hover .arrow {
+  color: var(--accent);
+  background: rgba(255, 90, 54, 0.12);
+  transform: translate(2px, -2px);
 }
 
 .description {
-  color: var(--secondary);
+  font-size: 1.45rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
 }
