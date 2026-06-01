@@ -68,8 +68,8 @@ const Home: NextPage = () => {
         <div className={styles.logo_container}>
           <Image
             className={styles.logo}
-            src="/images/logo.jpg"
-            alt="NS Logo"
+            src="/images/nermin.jpg"
+            alt="Nermin Skenderovic profile picture"
             width={96}
             height={96}
           />
