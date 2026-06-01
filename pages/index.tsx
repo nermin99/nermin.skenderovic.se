@@ -113,7 +113,7 @@ const Home: NextPage = () => {
               className={styles.social}
               aria-label={social.label}
               target={social.href.startsWith('mailto:') ? undefined : '_blank'}
-              rel={social.href.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
+              rel="noopener noreferrer"
             >
               <span className={styles.icon_img}>
                 <Image src={social.icon} alt="" width={22} height={22} />
