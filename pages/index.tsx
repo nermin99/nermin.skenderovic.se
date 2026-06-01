@@ -26,9 +26,14 @@ const Home: NextPage = () => {
         <div className={styles.grid_container}>
           {/* <h1 className={`${styles.title} ${styles.grid_item_1}`}>Projects:</h1> */}
           <Card
+            title="skanetrafiken-delays.se"
+            description="Live & historical train delays across the Öresund strait."
+            link="https://skanetrafiken-delays.se"
+          />
+          <Card
             title="TimeCalculator.guru"
             description="Free online easy to use calculator for time and duration expressions."
-            link="https://nermin99.github.io/timecalculator/"
+            link="https://timecalculator.guru/"
           />
           <Card
             title="@nermin99/priorityqueue"
@@ -40,11 +45,6 @@ const Home: NextPage = () => {
             description="Simple prime number finder and factorizer. Efficient up to ~16 digit prime numbers."
             link="https://nermin99.github.io/prime-factorizer/"
           />
-          <Card
-            title="NAED.se"
-            description="Website for NAED Byggkonsult, a construction consultant dealing with building permits, consultation and drawings."
-            link="https://github.com/nermin99/naed.se"
-          />
         </div>
       </main>
 
@@ -53,7 +53,7 @@ const Home: NextPage = () => {
           <h1 title="Ninja">Nermin Skenderovic</h1>
           <h2>M.Sc. Data Science & AI</h2>
           <h2>B.Sc. Computer Science & Engineering</h2>
-          <h3>Copenhagen, Denmark</h3>
+          <h3>Malmö, Sweden</h3>
         </div>
 
         <div className={styles.social_links}>
